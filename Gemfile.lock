@@ -1,3 +1,30 @@
+GIT
+  remote: git://github.com/jksilliman/devise_ldap_authenticatable.git
+  revision: 7a8cff796fec1eb3a73c573c14d5044cd875fc6c
+  specs:
+    devise_ldap_authenticatable (0.4.9)
+      devise (~> 1.4.0)
+      net-ldap (~> 0.2.2)
+
+GIT
+  remote: git://github.com/plataformatec/devise.git
+  revision: 04999bdca84b020181456956ce21731dedd288c7
+  branch: v1.4
+  specs:
+    devise (1.4.9)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
+
+GIT
+  remote: git://github.com/plataformatec/simple_form.git
+  revision: a230507eca8aab00093667327b367161681416d3
+  branch: wrappers
+  specs:
+    simple_form (1.5.0)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -29,9 +56,17 @@ GEM
       activesupport (= 3.1.1)
     activesupport (3.1.1)
       multi_json (~> 1.0)
+    annotate (2.4.0)
     ansi (1.3.0)
     arel (2.2.1)
+    bcrypt-ruby (3.0.1)
     builder (3.0.0)
+    capistrano (2.9.0)
+      highline
+      net-scp (>= 1.0.0)
+      net-sftp (>= 2.0.0)
+      net-ssh (>= 2.0.14)
+      net-ssh-gateway (>= 1.1.0)
     coffee-rails (3.1.1)
       coffee-script (>= 2.2.0)
       railties (~> 3.1.0)
@@ -42,18 +77,35 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    haml (3.1.3)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
+    highline (1.6.2)
     hike (1.2.1)
     i18n (0.6.0)
     jquery-rails (1.0.16)
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
+    libv8 (3.3.10.2)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.17.2)
     multi_json (1.0.3)
+    net-ldap (0.2.2)
+    net-scp (1.0.4)
+      net-ssh (>= 1.99.1)
+    net-sftp (2.0.5)
+      net-ssh (>= 2.0.9)
+    net-ssh (2.2.1)
+    net-ssh-gateway (1.1.0)
+      net-ssh (>= 1.99.1)
+    orm_adapter (0.0.5)
     polyglot (0.3.3)
     rack (1.3.5)
     rack-cache (1.1)
@@ -94,6 +146,8 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.4)
+    therubyracer (0.9.8)
+      libv8 (~> 3.3.10)
     thor (0.14.6)
     tilt (1.3.3)
     treetop (1.4.10)
@@ -105,15 +159,25 @@ GEM
     uglifier (1.0.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    warden (1.0.6)
+      rack (>= 1.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
+  capistrano
   coffee-rails (~> 3.1.1)
+  devise (~> 1.4.0)!
+  devise_ldap_authenticatable!
+  haml
+  haml-rails
   jquery-rails
   rails (= 3.1.1)
   sass-rails (~> 3.1.4)
+  simple_form!
   sqlite3
+  therubyracer
   turn
   uglifier (>= 1.0.3)
