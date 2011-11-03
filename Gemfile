@@ -9,7 +9,7 @@ gem 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git', :branch => 'wrappers'
-gem 'therubyracer', :require => 'v8'
+# gem 'therubyracer', :require => 'v8'
 gem 'jquery-rails'
 
 gem 'capistrano'
