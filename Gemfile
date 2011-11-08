@@ -14,6 +14,10 @@ gem 'jquery-rails'
 
 gem 'capistrano'
 
+group :production do
+  gem 'therubyracer'
+end
+
 group :development do
   gem 'annotate'  
 end
