@@ -1,7 +1,11 @@
 Otis::Application.routes.draw do
+  resources :polls do
+    resource :response
+  end
+
   devise_for :users
 
-  root :to => "main#index"
+  root :to => "polls#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

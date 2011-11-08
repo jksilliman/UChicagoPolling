@@ -1,0 +1,9 @@
+%h1= @poll.question
+= form_for(Response.new, :url => poll_response_path(@poll)) do |f|
+  %ul
+    - @poll.answers.each do |answer, answer_text|
+      %li
+        = f.radio_button :answer, answer
+        = @poll.num_responses_for answer
+        = f.label :answer, answer_text
+  = f.submit "Vote"

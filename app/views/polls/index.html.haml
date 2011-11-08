@@ -1,0 +1,4 @@
+%h1 Polls
+%ul
+  - @polls.each do |poll|
+    %li= link_to poll.question, poll
