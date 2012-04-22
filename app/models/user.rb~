@@ -1,12 +1,49 @@
-class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable, :omniauthable, :registerable, :validatable, :recoverable
+  class User < ActiveRecord::Base
+    
+  def self.divisions
+    [
+      "The College (undergraduate studies)",
+      "Biological Sciences Division",
+      "Chicago Booth School of Business",
+      "Divinity School",
+      "Graham School of Continuing Liberal and Professional Studies",
+      "Harris School of Public Policy Studies",
+      "Humanities Division",
+      "Law School",
+      "Physical Sciences Division",
+      "Pritzker School of Medicine",
+      "School of Social Service Administration",
+      "Social Sciences Division"
+    ]
+  end
+
+  def self.years
+    ["1", "2", "3", "4", "5", "6+"]
+  end
+
+  def self.locations
+    ["Off Campus", "Blackstone House",
+      "Breckinridge House",
+      "Broadview Hall",
+      "Burton-Judson Courts",
+      "Maclean House",
+      "Max Palevsky Residential Commons",
+      "Pierce Tower",
+      "Snell-Hitchcock Hall",
+      "South Campus Residence Hall",
+      "Stony Island House", 
+      "IHouse", "Grad Housing"]
+  end
+
+  validates_inclusion_of :division, :in => User.divisions
+  validates_inclusion_of :year, :in => User.years
+  validates_inclusion_of :location, :in => User.locations
+
 
   devise :ldap_authenticatable, :rememberable
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :password 
   attr_accessible :username, :is_admin, :as => :admin
-  attr_accessible :first_name, :last_name, :phone_number, :as => :applicant
+  attr_accessible :first_name, :last_name, :division, :year, :location, :as => :info
 
   validate :is_in_ldap
   def is_in_ldap

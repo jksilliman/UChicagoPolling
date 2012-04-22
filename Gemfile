@@ -27,7 +27,8 @@ group :test do
 end
 
 group :assets do
-  gem 'sass-rails',   '~> 3.1.4'
-  gem 'coffee-rails', '~> 3.1.1'
+  gem 'sass-rails',   '~> 3.1.0.rc'
+  gem 'sass', "3.1.1"
+  gem 'coffee-rails', '~> 3.1.0.rc'
   gem 'uglifier', '>= 1.0.3'
 end

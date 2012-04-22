@@ -1,0 +1,12 @@
+- title "Basic Info"
+%p 
+  Please fill out the following information to help us better understand your responses. 
+
+= simple_form_for(current_user, :url => info_path) do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :division, :collection => User.divisions
+  = f.input :year, :hint => "What year are you in the college/your graduate program?", :collection => User.years
+  = f.input :location, :label => "Residence", :hint => "Where do you live?", :collection => User.locations
+
+  = f.button :submit, "Update Info", :class => "btn primary"

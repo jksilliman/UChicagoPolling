@@ -3,7 +3,8 @@ Otis::Application.routes.draw do
     resource :response
   end
 
-  devise_for :users
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
+  resource :info, :controller => "info", :only => [:edit, :update]
 
   root :to => "polls#index"
   # The priority is based upon order of creation:

@@ -1,6 +1,6 @@
 %h1= @poll.question
 = form_for(Response.new, :url => poll_response_path(@poll)) do |f|
-  %ul
+  %ul.choices
     - @poll.answers.each do |answer, answer_text|
       %li
         = f.radio_button :answer, answer

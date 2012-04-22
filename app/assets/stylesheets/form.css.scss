@@ -12,7 +12,8 @@ input.long, textarea {
   width: 500px;
 }
 
-.nomination, .application {
+ul.choices {
+  list-style: none;
   div.input {
     margin-left: 0px;
   }

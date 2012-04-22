@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111108040003) do
+ActiveRecord::Schema.define(:version => 20120406223117) do
 
   create_table "polls", :force => true do |t|
     t.text     "question"
@@ -34,12 +34,16 @@ ActiveRecord::Schema.define(:version => 20111108040003) do
   create_table "users", :force => true do |t|
     t.string   "remember_token"
     t.datetime "remember_created_at"
-    t.string   "username",            :default => "", :null => false
+    t.string   "username",            :default => "",   :null => false
     t.string   "email"
     t.string   "first_name"
     t.string   "last_name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "needs_info",          :default => true, :null => false
+    t.string   "division"
+    t.string   "year"
+    t.string   "location"
   end
 
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true

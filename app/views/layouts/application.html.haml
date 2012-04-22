@@ -4,12 +4,17 @@
     %title= "#{title} | Data.UChicago" 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
+    = javascript_include_tag "http://sg.uchicago.edu/sg-header/sg-header.js"
+    = render "layouts/scripts"
     = csrf_meta_tags
   %body
     .page-header
       .user-panel
         - if current_user
-          = "Welcome, #{current_user.username}"
+          = "Welcome, #{current_user.username}" 
+          |
+          = link_to "Edit Info", edit_info_path
+          |
           = link_to "Logout", destroy_user_session_path, :method => "delete"
         - else
           = link_to "Login", new_user_session_path
