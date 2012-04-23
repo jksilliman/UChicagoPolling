@@ -2,7 +2,7 @@
 
 %p= markdown(SiteContent.get("sign_in_text"))
 
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| 
+= simple_form_for(resource, :as => 'User', :url => user_session_path) do |f| 
   = f.input :username, :label => "CNetID"
   = f.input :password
 
