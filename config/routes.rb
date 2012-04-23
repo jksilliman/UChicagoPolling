@@ -5,7 +5,6 @@ Otis::Application.routes.draw do
   resources :surveys, :only => [:index, :show, :update]
 
 
-  devise_for :users, :controllers => { :sessions => "users/sessions" }
   resource :info, :controller => "info", :only => [:edit, :update]
   
 
@@ -23,6 +22,7 @@ Otis::Application.routes.draw do
 
 
 
+  devise_for :users, :controllers => { :sessions => "users/sessions" }
   root :to => "surveys#index"
   #root :to => "polls#index"
   

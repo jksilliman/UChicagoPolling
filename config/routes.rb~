@@ -2,7 +2,7 @@ Otis::Application.routes.draw do
   resources :polls do
     resource :response
   end
-  resource :surveys, :only => [:index, :show, :update]
+  resources :surveys, :only => [:index, :show, :update]
 
 
   devise_for :users, :controllers => { :sessions => "users/sessions" }
