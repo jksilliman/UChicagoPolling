@@ -5,7 +5,8 @@ class Users::SessionsController < Devise::SessionsController
       temp = session[:url_back]
       session[:url_back] = nil
       return temp
+    else
+      return super(resource)
     end
-    super(resource)
   end
 end

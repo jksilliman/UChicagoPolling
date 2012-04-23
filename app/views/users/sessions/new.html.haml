@@ -1,7 +1,9 @@
 -title "Sign in"
 
+%p= markdown(SiteContent.get("sign_in_text"))
+
 = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| 
-  = f.input :username
+  = f.input :username, :label => "CNetID"
   = f.input :password
 
   /- if devise_mapping.rememberable? 

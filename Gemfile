@@ -12,6 +12,8 @@ gem 'simple_form', :git => 'git://github.com/plataformatec/simple_form.git', :br
 gem 'cancan'
 # gem 'therubyracer', :require => 'v8'
 gem 'jquery-rails'
+gem 'bluecloth'
+
 
 gem 'capistrano'
 
