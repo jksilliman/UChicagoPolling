@@ -1,0 +1,28 @@
+%h1= "Manage Questions for #{@survey.name}"  
+
+
+
+= link_to "Create Page", new_admin_survey_page_path(@survey), :class => "btn primary" 
+
+- @survey.pages.each do |page|
+  .page
+    %h2= page.title
+    %div
+      = link_to "Edit Page", edit_admin_survey_page_path(@survey, page) 
+      = link_to "Delete Page", admin_survey_page_path(@survey, page), :method => :delete, :confirm => "Are you sure you want to delete this page? All its questions will be deleted.", :style => "float: right;"
+
+    = link_to "Create Question", new_admin_survey_question_path(@survey, :page_id => page.id), :class => "btn primary" 
+
+    %table.questions
+      %thead
+        %tr
+          %th Text
+          %th Action
+      %tbody
+      - page.questions.each do |question|
+        %tr.question
+          %td= question.text
+          %td 
+            = link_to "Edit", edit_admin_survey_question_path(@survey, question)
+            = link_to "Remove", admin_survey_question_path(@survey, question), :method => :delete, :confirm => "Are you sure you want to delete this question?"
+

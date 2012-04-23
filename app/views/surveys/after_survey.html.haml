@@ -1,0 +1,6 @@
+- title "#{@survey.name} - Complete"
+%p= @survey.after_text
+
+.actions
+  = link_to "Back", survey_path(@survey, :page_num => @survey.pages.count), :class => "btn", :style => "float: left"
+

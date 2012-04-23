@@ -1,0 +1,4 @@
+- title "#{@survey.name}"
+%p= @survey.before_text
+.actions
+  = link_to "Next", survey_path(@survey, :page_num => 1), :class => "btn primary" 

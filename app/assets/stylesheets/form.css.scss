@@ -22,4 +22,31 @@ ul.choices {
   } 
 }
 
+ul.questions {
+  list-style: none;
+  
+  .number {
+    float: left;
+    padding-right: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  .text {
+    font-size: 1.2em;
+  }
 
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  label {
+    float: none;
+  }
+  .question {
+    margin-bottom: 60px;
+  }
+}
+.actions {
+  padding-left: 30px;
+}

@@ -1,5 +1,7 @@
-  class User < ActiveRecord::Base
-    
+class User < ActiveRecord::Base
+  has_many :survey_responses  
+
+
   def self.divisions
     [
       "The College (undergraduate studies)",

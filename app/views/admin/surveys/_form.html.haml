@@ -1,0 +1,8 @@
+= simple_form_for([:admin, @survey]) do |f|
+  = f.input :name
+  = f.input :is_published, :label => "Published?", :hint => "Is this survey open to the public?"
+
+  = f.input :before_text, :hint => "The text to introduce people to your survey."
+  = f.input :after_text,  :hint => "The text to thank people for taking your survey."
+  
+  = f.button :submit

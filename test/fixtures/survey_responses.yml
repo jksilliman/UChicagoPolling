@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  survey: 
+  user: 
+  last_page: 1
+  answers: MyText
+  is_complete: false
+
+two:
+  survey: 
+  user: 
+  last_page: 1
+  answers: MyText
+  is_complete: false

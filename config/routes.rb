@@ -2,11 +2,31 @@ Otis::Application.routes.draw do
   resources :polls do
     resource :response
   end
+  resources :surveys, :only => [:index, :show, :update]
+
 
   devise_for :users, :controllers => { :sessions => "users/sessions" }
   resource :info, :controller => "info", :only => [:edit, :update]
+  
 
-  root :to => "polls#index"
+  namespace :admin do
+    resources :users, :only => [:index, :new, :create, :destroy]
+    resources :content, :only => [:index, :edit, :update]
+    resources :surveys do
+      resources :pages
+      resources :questions
+    end
+
+
+    root :to => 'surveys#index', :as => ""
+  end
+
+
+
+  root :to => "surveys#index"
+  #root :to => "polls#index"
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

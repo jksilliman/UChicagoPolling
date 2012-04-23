@@ -1,0 +1,22 @@
+- title "Manage Surveys"
+
+= link_to "Create Survey", new_admin_survey_path, :class => "btn primary" 
+
+%table.surveys
+  %thead
+    %tr
+      %th Name
+      %th Published?
+      %th Action
+  %tbody
+  - @surveys.each do |survey|
+    %tr.survey
+      %td= survey.name
+      %td= (survey.is_published) ? "Yes" : "No"
+      %td 
+        = link_to "Edit Survey", edit_admin_survey_path(survey)
+        = " | " 
+        = link_to "Manage Questions", admin_survey_questions_path(survey)
+        = " | "
+        = link_to "Remove", admin_survey_path(survey), :method => :delete, :confirm => "Are you sure you want to delete this survey? This will delete ALL associated survey responses!"
+

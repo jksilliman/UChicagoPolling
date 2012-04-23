@@ -1,0 +1,8 @@
+= simple_form_for([:admin, @survey, @question]) do |f|
+  = f.association :page
+  = f.input :text
+  = f.input :hint
+  
+  = f.input :options_data
+  
+  = f.button :submit

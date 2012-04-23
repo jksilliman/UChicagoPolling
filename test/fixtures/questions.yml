@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  page: 
+  text: MyText
+  hint: MyText
+  type: 
+  options: MyText
+
+two:
+  page: 
+  text: MyText
+  hint: MyText
+  type: 
+  options: MyText

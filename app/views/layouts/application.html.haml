@@ -12,9 +12,9 @@
       .user-panel
         - if current_user
           = "Welcome, #{current_user.username}" 
-          |
+          - if current_user.is_admin
+            = link_to "Admin Panel", admin_path
           = link_to "Edit Info", edit_info_path
-          |
           = link_to "Logout", destroy_user_session_path, :method => "delete"
         - else
           = link_to "Login", new_user_session_path
@@ -25,13 +25,18 @@
           = image_tag "sg.jpg", :class => 'logo'
         = link_to root_path do
           %h1 Data.UChicago
+      .sidebar
+        - if content_for?(:sidebar)
+          = yield :sidebar
+        - else
+          %ul.committees.unstyled      
 
       .content
-        %h1= title
         
         .flashes
           - flash.each do |type, text|
             %div{"class" => "#{type} alert-message"}= text
         .row
           .span10.columns
+            %h1= title
             = yield

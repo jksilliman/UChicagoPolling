@@ -1,0 +1,4 @@
+- title "Surveys"
+%ul
+  - @surveys.each do |survey|
+    %li= link_to survey.name, survey

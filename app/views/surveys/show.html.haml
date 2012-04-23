@@ -1,0 +1,44 @@
+- title "#{@survey.name} - #{@page.title}"
+
+%ul.questions
+  = form_tag(survey_path(@survey), :method => :put) do |f|
+    = hidden_field_tag "page_num", @page.order
+    - @questions.each do |question|
+      - response = @response.load_answers[question.id.to_s]
+
+      %li.question
+        %span.number(style="float: left; padding-right: 10px")
+          - if question.options["required"]
+            *
+          = "#{question.number}."
+        %p.text= question.text
+        %p.hint= question.hint
+          
+        - if @errors.include?(question.id)
+          %p.error This question is required.
+
+        - qname = "question[#{question.id}]"
+        - if question.options['type'] == 'text'
+          = text_area_tag qname, response
+        - elsif question.options['type'] == 'scale'
+          %table
+            %tr
+              - 1.upto(5) do |n|
+                %td= label_tag qname, n
+            %tr
+              - 1.upto(5) do |n|
+                %td= radio_button_tag qname, n, (n.to_s == response.to_s) 
+        - elsif question.options['type'] == 'options'
+          %ul(style="list-style: none")
+            - question.options["options"].each do |option|
+              %li 
+                = radio_button_tag qname, option, (option == response.to_s)
+                = label_tag qname, option
+
+    .actions
+      = submit_tag "Back", :class => "btn", :style => "float: left"
+      = submit_tag "Next", :class => "btn primary" 
+
+
+
+

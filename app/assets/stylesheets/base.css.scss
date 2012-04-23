@@ -22,10 +22,11 @@ body {
 .user-panel{
   float:right; margin:30px;
   a {
-    display:block;
+    //display:block;
     background: #eed;
     text-shadow: 0 1px #fff;
-    padding:8px 16px;
+    padding:8px 12px;
+    margin-left: 4px; 
     margin-bottom:2px;
     &:hover,&:active{background:#ddc;}
   }
