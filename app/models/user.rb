@@ -37,13 +37,23 @@ class User < ActiveRecord::Base
       "IHouse", "Grad Housing"]
   end
 
-  validates :division, :presence => true
-  validates :year, :presence => true
-  validates :location, :presence => true
+  validates :division, :presence => true, :if => :on_info_form
+  validates :year, :presence => true, :if => :on_info_form
+  validates :location, :presence => true, :if => :on_info_form
 
-  validates_inclusion_of :division, :in => User.divisions
-  validates_inclusion_of :year, :in => User.years
-  validates_inclusion_of :location, :in => User.locations
+  validates_inclusion_of :division, :in => User.divisions, :if => :on_info_form
+  validates_inclusion_of :year, :in => User.years, :if => :on_info_form
+  validates_inclusion_of :location, :in => User.locations, :if => :on_info_form
+
+  def on_info_form
+    @on_form ||= false
+  end
+
+  def on_info_form=(val)
+    @on_form = val
+  end
+
+
 
 
   devise :ldap_authenticatable, :rememberable

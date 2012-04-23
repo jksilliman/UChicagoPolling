@@ -7,6 +7,7 @@ class InfoController < ApplicationController
   end
 
   def update
+    current_user.on_info_form = true
     current_user.assign_attributes(params[:user], :as => :info)
 
     if current_user.valid?
