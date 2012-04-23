@@ -7,3 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.first.update_attribute(:is_admin, true)
+SurveyResponse.delete_all

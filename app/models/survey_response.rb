@@ -14,6 +14,7 @@ class SurveyResponse < ActiveRecord::Base
 
   before_save :jsonify
   def jsonify
+    load_answers
     self.answers = @answers.to_json
   end
 
