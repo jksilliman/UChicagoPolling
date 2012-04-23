@@ -6,6 +6,4 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
-Poll.delete_all
-Poll.create(question: "What is your favorite Pokemon?", answers: {'squirtle' => "Squirtle", 'bulbasaur' => "Bulbasaur", 'ivysaur' => 'Ivysaur'})
+User.first.update_attribute(:is_admin, true)
