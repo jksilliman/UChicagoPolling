@@ -1,5 +1,5 @@
 class SurveysController < ApplicationController
-  before_filter :authenticate_and_redirect!, :load_survey, :only => [:show, :update]
+  before_filter :authenticate_and_redirect!, :ensure_info!, :load_survey, :only => [:show, :update]
   before_filter :load_surveys, :only => [:index]
 
   def index
