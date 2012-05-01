@@ -22,12 +22,27 @@
           = text_area_tag qname, response
         - elsif question.options['type'] == 'scale'
           %table
+            %thead
+              %tr
+                - 1.upto(5) do |n|
+                  %td= label_tag qname, n
             %tr
               - 1.upto(5) do |n|
-                %td= label_tag qname, n
-            %tr
-              - 1.upto(5) do |n|
-                %td= radio_button_tag qname, n, (n.to_s == response.to_s) 
+                %td= radio_button_tag qname, n, (n.to_s == response.to_s)
+        - elsif question.options['type'] == 'grid' || question.options['type'] == 'rank'
+          - response ||= {}
+          %table.zebra-striped{:class => question.options["type"]}
+            %thead
+              %tr
+                %td
+                - question.options['columns'].each do |col|
+                  %td= col
+            - question.options['rows'].each do |row|
+              %tr
+                %td= row
+                - question.options['columns'].each do |col|
+                  %td= radio_button_tag qname+"[#{row}]", col, (col == response[row]), "data-col" => col
+
         - elsif question.options['type'] == 'options'
           %ul(style="list-style: none")
             - question.options["options"].each do |option|
