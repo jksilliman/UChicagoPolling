@@ -54,7 +54,8 @@
             - if question.options['other']
               %li
                 - other_response = ""
-                - other_response = response unless question.options["options"].include?(response)
+                - unless question.options["options"].include?(response)
+                  - other_response = response
                 = radio_button_tag qname, other_response, (other_response == response)
                 = label_tag qname+"_"+other_response, "Other:"
                 = text_field_tag "", other_response, :size => "40", :style => "width: auto", :class => "other"
