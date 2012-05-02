@@ -18,7 +18,9 @@
           %p.error This question is required.
 
         - qname = "question[#{question.id}]"
-        - if question.options['type'] == 'text'
+        - if question.options['type'] == 'smalltext'
+          = text_field_tag qname, response, :size => "60", :style => "width: auto;"
+        - elsif question.options['type'] == 'text'
           = text_area_tag qname, response
         - elsif question.options['type'] == 'scale'
           %table
