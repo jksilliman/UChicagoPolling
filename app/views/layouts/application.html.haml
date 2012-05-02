@@ -31,12 +31,12 @@
         - else
           %ul.committees.unstyled      
 
-      .content
+      .content{:style=>"margin-left:auto"}
         
         .flashes
           - flash.each do |type, text|
             %div{"class" => "#{type} alert-message"}= text
         .row
-          .span10.columns
+          .span14.columns
             %h1= title
             = yield
