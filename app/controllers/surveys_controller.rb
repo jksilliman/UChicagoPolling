@@ -38,9 +38,14 @@ class SurveysController < ApplicationController
       @questions = []
     end
 
+    unless params[:question].is_a? Array
+      q_answers = params[:question]
+    else
+      q_answers = []
+    end
 
     @questions.each do |q|
-      answer = params[:question][q.id.to_s]
+      answer = q_answers[q.id.to_s]
       if q.valid_answer?(answer)
         @response.modify_answer(q.id, answer)
       else
