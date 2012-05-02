@@ -1,6 +1,6 @@
 class Survey < ActiveRecord::Base
   has_many :survey_responses
-  has_many :pages, :order => "'order'"
+  has_many :pages, :order => "'order' DESC"
   has_many :questions, :through => :pages
 
   attr_accessible :name, :is_published, :before_text, :after_text
