@@ -46,6 +46,7 @@
                   %td= radio_button_tag qname+"[#{row}]", col, (col == response[row]), "data-col" => col
 
         - elsif question.options['type'] == 'options'
+          - response ||= ""
           %ul(style="list-style: none")
             - question.options["options"].each do |option|
               %li 
